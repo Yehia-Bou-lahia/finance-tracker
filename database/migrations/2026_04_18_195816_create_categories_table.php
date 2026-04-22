@@ -15,6 +15,7 @@ return new class extends Migration
             $table->enum('type', ['income', 'expense']);
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE categories ADD CONSTRAINT check_category_type CHECK (type IN ('income', 'expense'))");
     }
 
     public function down(): void
