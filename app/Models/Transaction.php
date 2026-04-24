@@ -17,8 +17,8 @@ class Transaction extends Model
     ];
 
     protected $casts = [
-        'date' => 'date',       // يحول التاريخ إلى كائن Carbon تلقائياً
-        'amount' => 'decimal:2', // يضمن التعامل مع المبلغ كـ decimal
+        'date' => 'date',
+        'amount' => 'decimal:2',
     ];
 
     public function user(): BelongsTo
