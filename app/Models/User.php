@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    
     protected $fillable = [
         'name',
         'email',
@@ -32,5 +33,10 @@ class User extends Authenticatable
     public function categories(): HasMany
     {
         return $this->hasMany(Category::class);
+    }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
