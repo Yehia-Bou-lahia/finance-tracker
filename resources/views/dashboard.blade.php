@@ -10,6 +10,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    
+                    {{-- أيقونة اختبار نجاح تركيب Heroicons --}}
+                    <div class="mt-4 flex items-center space-x-2">
+                        <x-heroicon-o-wallet class="w-10 h-10 text-blue-500" />
+                        <span class="text-sm text-gray-500">Heroicons wallet icon loaded successfully</span>
+                    </div>
                 </div>
             </div>
         </div>
