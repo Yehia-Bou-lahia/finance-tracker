@@ -7,9 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/statistics', [\App\Http\Controllers\StatisticsController::class, 'index'])
+    ->middleware('auth')->name('statistics');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,3 +22,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('transactions', \App\Http\Controllers\TransactionController::class);
 });
 
+require __DIR__.'/auth.php';
